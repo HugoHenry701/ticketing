@@ -1,5 +1,6 @@
 import Link from 'next/link';
-export default ({ currentUser }) => {
+
+const Header = ({ currentUser }) => {
   const links = [
     !currentUser && { label: 'Sign Up', href: '/auth/signup' },
     !currentUser && { label: 'Sign In', href: '/auth/signin' },
@@ -17,16 +18,18 @@ export default ({ currentUser }) => {
         </li>
       );
     });
+
   return (
     <nav className="navbar navbar-light bg-light">
       <Link href="/">
-        <a className="navbar-brand" style={{ marginLeft: '1rem' }}>
-          TixKix
-        </a>
+        <a className="navbar-brand">TixKit</a>
       </Link>
+
       <div className="d-flex justify-content-end">
         <ul className="nav d-flex align-items-center">{links}</ul>
       </div>
     </nav>
   );
 };
+
+export default Header;
