@@ -3,6 +3,7 @@ import { app } from './app';
 
 const start = async () => {
   console.log('Test script force exit');
+  console.log('Test build docker image and push');
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined.');
   }
