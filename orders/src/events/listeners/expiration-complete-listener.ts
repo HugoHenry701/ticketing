@@ -25,7 +25,7 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
       status: OrderStatus.Cancelled,
     });
     await order.save();
-    new OrderCancelledPulisher(natsWrapper.client).publish({
+    await new OrderCancelledPulisher(natsWrapper.client).publish({
       id: order.id,
       ticket: {
         id: order.ticket.id,
