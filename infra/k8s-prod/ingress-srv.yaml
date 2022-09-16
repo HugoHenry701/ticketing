@@ -38,7 +38,7 @@ spec:
                 name: orders-srv
                 port:
                   number: 3000
-          # client should be start last.
+          # client should be start last...
           - path: /?(.*)
             pathType: Prefix
             backend:
