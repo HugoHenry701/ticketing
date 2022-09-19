@@ -43,7 +43,7 @@ const start = async () => {
   } catch (err) {
     console.log(err);
   }
-  const PORT = 3000;
+  const PORT = 3001;
   app.listen(PORT, () => {
     console.log(`Tickets app is listening at port ${PORT}!!!!!!`);
   });
