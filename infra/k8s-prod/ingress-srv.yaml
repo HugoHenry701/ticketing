@@ -1,55 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-servicea
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: 'true'
-spec:
-  rules:
-    - host: www.htproduction.me
-      http:
-        paths:
-          - path: /api/payments/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: payments-srv
-                port:
-                  number: 3003
-          - path: /api/users/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: auth-srv
-                port:
-                  number: 3004
-          - path: /api/tickets/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: tickets-srv
-                port:
-                  number: 3001
-          - path: /api/orders/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: orders-srv
-                port:
-                  number: 3002
-          - path: /?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: client-srv
-                port:
-                  number: 3000
-  ingressClassName: nginx
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-serviceb
+  name: ingress-service
   annotations:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
