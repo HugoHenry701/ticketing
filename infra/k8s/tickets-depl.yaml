@@ -15,6 +15,8 @@ spec:
       containers:
         - name: tickets
           image: hugowuang701/tickets
+          ports:
+            - containerPort: 3001
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
