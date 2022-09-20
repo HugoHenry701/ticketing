@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-depl
+  labels:
+    app: auth
 spec:
   replicas: 1
   selector:
@@ -15,8 +17,6 @@ spec:
       containers:
         - name: auth
           image: hugowuang701/auth
-          ports:
-            - containerPort: 3004
           env:
             - name: MONGO_URI
               value: 'mongodb://auth-mongo-srv:27017/auth'
@@ -30,6 +30,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: auth-srv
+  labels:
+    app: auth
 spec:
   selector:
     app: auth
