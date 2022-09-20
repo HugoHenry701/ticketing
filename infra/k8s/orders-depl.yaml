@@ -41,8 +41,9 @@ metadata:
 spec:
   selector:
     app: orders
+  type: ClusterIP
   ports:
     - name: orders
       protocol: TCP
-      port: 3000
+      port: 80
       targetPort: 3000

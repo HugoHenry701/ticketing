@@ -31,8 +31,9 @@ metadata:
 spec:
   selector:
     app: client
+  type: ClusterIP
   ports:
     - name: client
       protocol: TCP
-      port: 3000
+      port: 80
       targetPort: 3000
