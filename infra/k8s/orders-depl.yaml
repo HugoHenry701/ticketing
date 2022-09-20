@@ -2,15 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orders-depl
+  labels:
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: orders
+      tier: backend
   template:
     metadata:
       labels:
         app: orders
+        tier: backend
     spec:
       containers:
         - name: orders

@@ -2,15 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: payments-depl
+  labels:
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: payments
+      tier: backend
   template:
     metadata:
       labels:
         app: payments
+        tier: backend
     spec:
       containers:
         - name: payments
