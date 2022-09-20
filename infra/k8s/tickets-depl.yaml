@@ -2,19 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tickets-depl
-  labels:
-    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: tickets
-      tier: backend
   template:
     metadata:
       labels:
         app: tickets
-        tier: backend
     spec:
       containers:
         - name: tickets
@@ -40,12 +36,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tickets-srv
-  labels:
-    tier: backend
 spec:
   selector:
     app: tickets
-    tier: backend
   ports:
     - name: tickets
       protocol: TCP
