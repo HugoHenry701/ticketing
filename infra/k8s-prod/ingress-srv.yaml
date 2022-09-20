@@ -16,28 +16,28 @@ spec:
               service:
                 name: payments-srv
                 port:
-                  number: 3003
+                  number: 3000
           - path: /api/users/?(.*)
             pathType: Prefix
             backend:
               service:
                 name: auth-srv
                 port:
-                  number: 3004
+                  number: 3000
           - path: /api/tickets/?(.*)
             pathType: Prefix
             backend:
               service:
                 name: tickets-srv
                 port:
-                  number: 3001
+                  number: 3000
           - path: /api/orders/?(.*)
             pathType: Prefix
             backend:
               service:
                 name: orders-srv
                 port:
-                  number: 3002
+                  number: 3000
           - path: /?(.*)
             pathType: Prefix
             backend:
@@ -51,7 +51,7 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: 'true'
-    service.beta.kubernetes.io/do-loadbalancer-hostname: 'www.htproduction.me'
+    service.beta.kubernetes.io/do-loadbalancer-hostname: 'htproduction.me'
   labels:
     helm.sh/chart: ingress-nginx-2.0.3
     app.kubernetes.io/name: ingress-nginx
@@ -63,7 +63,7 @@ metadata:
   namespace: ingress-nginx
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Local
   ports:
     - name: http
       port: 80
