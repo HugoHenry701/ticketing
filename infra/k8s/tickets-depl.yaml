@@ -31,6 +31,10 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
+          ports:
+            - name: tickets
+              containerPort: 3001
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -38,14 +42,7 @@ metadata:
   name: tickets-srv
 spec:
   selector:
-    matchLabels:
-      app: tickets
-  template:
-    metadata:
-      labels:
-        app: tickets
+    app: tickets
   ports:
     - name: tickets
-      protocol: TCP
       port: 3001
-      targetPort: 3001
