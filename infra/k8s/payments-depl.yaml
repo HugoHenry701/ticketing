@@ -36,6 +36,10 @@ spec:
                 secretKeyRef:
                   name: stripe-secret
                   key: STRIPE_KEY
+          ports:
+            - name: payments
+              containerPort: 3003
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -43,14 +47,7 @@ metadata:
   name: payments-srv
 spec:
   selector:
-    matchLabels:
-      app: payments
-  template:
-    metadata:
-      labels:
-        app: payments
+    app: payments
   ports:
     - name: payments
-      protocol: TCP
       port: 3003
-      targetPort: 3003
