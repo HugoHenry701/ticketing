@@ -15,6 +15,8 @@ spec:
       containers:
         - name: payments
           image: hugowuang701/payments
+          ports:
+            - containerPort: 3003
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
