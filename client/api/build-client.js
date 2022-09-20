@@ -5,7 +5,7 @@ const buildClient = ({ req }) => {
     // We are on the server
 
     return axios.create({
-      baseURL: 'http://htproduction.me/',
+      baseURL: 'http://www.htproduction.me/',
       headers: req.headers,
     });
   } else {
