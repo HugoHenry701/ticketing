@@ -4,10 +4,10 @@ deploy:
   kubectl:
     manifests:
       - ./infra/k8s/*
-      - ./infra/k8s-dev/*
+      - ./infra/k8s-prod/*
 build:
-  local:
-    push: false
+  #local:
+  # push: false
   artifacts:
     - image: hugowuang701/auth
       context: auth

@@ -36,10 +36,6 @@ spec:
                 secretKeyRef:
                   name: stripe-secret
                   key: STRIPE_KEY
-          ports:
-            - name: payments
-              containerPort: 3003
-              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -50,4 +46,6 @@ spec:
     app: payments
   ports:
     - name: payments
-      port: 3003
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

@@ -21,10 +21,6 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
-          ports:
-            - name: client
-              containerPort: 3000
-              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -35,4 +31,6 @@ spec:
     app: client
   ports:
     - name: client
+      protocol: TCP
       port: 3000
+      targetPort: 3000
