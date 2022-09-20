@@ -40,9 +40,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tickets-srv
+  labels:
+    tier: backend
 spec:
   selector:
     app: tickets
+    tier: backend
   ports:
     - name: tickets
       protocol: TCP
