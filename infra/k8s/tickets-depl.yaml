@@ -2,15 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tickets-depl
+  labels:
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: tickets
+      tier: backend
   template:
     metadata:
       labels:
         app: tickets
+        tier: backend
     spec:
       containers:
         - name: tickets

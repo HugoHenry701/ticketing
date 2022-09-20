@@ -2,15 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-depl
+  labels:
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: auth
+      tier: backend
   template:
     metadata:
       labels:
         app: auth
+        tier: backend
     spec:
       containers:
         - name: auth

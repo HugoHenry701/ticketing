@@ -2,15 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-depl
+  labels:
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: client
+      tier: backend
   template:
     metadata:
       labels:
         app: client
+        tier: backend
     spec:
       containers:
         - name: client
