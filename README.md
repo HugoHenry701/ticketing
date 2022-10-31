@@ -1,7 +1,7 @@
 # ticketing
 
 Project Name: Ticketing
-NodeJS Microservices - Udemy Course 2022
+NodeJS Microservices 2022
 
 ## Technology
 
